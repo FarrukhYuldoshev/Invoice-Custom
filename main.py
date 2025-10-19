@@ -2,8 +2,11 @@ from contextlib import asynccontextmanager
 
 from fastapi import FastAPI
 import uvicorn
+from api_v1 import invoice_router
 
 app = FastAPI()
+
+app.include_router(invoice_router)
 
 
 # if we need some actions in starting application

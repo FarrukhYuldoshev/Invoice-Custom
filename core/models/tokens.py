@@ -6,7 +6,7 @@ from .base import Base
 
 class Token(Base):
     id: Mapped[int] = mapped_column(
-        Integer, primary_key=True, nullable=True, autoincrement=True, index=True
+        Integer, primary_key=True, autoincrement=True, index=True
     )
     token: Mapped[str] = mapped_column(String(), nullable=True)
     expires: Mapped[datetime.datetime] = mapped_column(DateTime, nullable=False)

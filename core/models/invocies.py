@@ -20,3 +20,4 @@ class Invoice(Base):
         MutableDict.as_mutable(JSONB), nullable=False, default=dict
     )
     file: Mapped[str] = mapped_column(String(100), nullable=True)
+    hashsum: Mapped[str] = mapped_column(String(64), nullable=False)

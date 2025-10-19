@@ -1,8 +1,8 @@
-"""initial migration
+"""new inital migration
 
-Revision ID: 61ab28db9f61
+Revision ID: bcfb5ac84de1
 Revises:
-Create Date: 2025-10-19 00:22:52.150900
+Create Date: 2025-10-19 23:12:36.534045
 
 """
 
@@ -13,7 +13,7 @@ import sqlalchemy as sa
 from sqlalchemy.dialects import postgresql
 
 # revision identifiers, used by Alembic.
-revision: str = "61ab28db9f61"
+revision: str = "bcfb5ac84de1"
 down_revision: Union[str, Sequence[str], None] = None
 branch_labels: Union[str, Sequence[str], None] = None
 depends_on: Union[str, Sequence[str], None] = None
@@ -33,6 +33,7 @@ def upgrade() -> None:
         ),
         sa.Column("data", postgresql.JSONB(astext_type=sa.Text()), nullable=False),
         sa.Column("file", sa.String(length=100), nullable=True),
+        sa.Column("hashsum", sa.String(length=64), nullable=False),
         sa.Column(
             "created_at",
             sa.DateTime(),
@@ -49,7 +50,7 @@ def upgrade() -> None:
     )
     op.create_table(
         "tokens",
-        sa.Column("id", sa.Integer(), autoincrement=True, nullable=True),
+        sa.Column("id", sa.Integer(), autoincrement=True, nullable=False),
         sa.Column("token", sa.String(), nullable=True),
         sa.Column("expires", sa.DateTime(), nullable=False),
         sa.Column("is_active", sa.Boolean(), nullable=False),
