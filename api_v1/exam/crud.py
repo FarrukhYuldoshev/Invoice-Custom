@@ -11,8 +11,7 @@ from .schemas import (
     Examinees,
     StatusEnum,
     DataSchema,
-    Details,
-    StudentExaminesResponse,
+    ResponseSchema,
 )
 from core.models import Student
 
@@ -59,8 +58,5 @@ async def get_exam(rfid: str, session: AsyncSession):
             )
             examinees.append(examSchema)
     dataSchema = DataSchema(student=studentSchema, examinees=examinees)
-    details = Details(room="C-201")
-    response = StudentExaminesResponse(
-        status="success", data=dataSchema, details=details
-    )
+    response = ResponseSchema(data=dataSchema)
     return response

@@ -39,13 +39,6 @@ class DataSchema(BaseModel):
     examinees: List[Examinees]
 
 
-class Details(BaseModel):
-    current_date: datetime.datetime = datetime.datetime.now()
-    room: str
-    status: str = "Желаем вам удачи на экзаменах!"
-
-
-class StudentExaminesResponse(BaseModel):
-    status: str
+class ResponseSchema(BaseModel):
     data: DataSchema
-    details: Details
+    status: str = "success"
