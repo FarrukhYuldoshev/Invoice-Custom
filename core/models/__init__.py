@@ -1,9 +1,7 @@
 from .base import Base
-from .invocies import Invoice
-from .tokens import Token
+from .students import Student
 
 __all__ = (
     "Base",
-    "Invoice",
-    "Token",
+    "Student",
 )

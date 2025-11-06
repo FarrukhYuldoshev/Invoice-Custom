@@ -1,3 +1,3 @@
-from .invoice.views import router as invoice_router
+from .exam.views import router as exam_operator_router
 
-__all__ = ("invoice_router",)
+__all__ = ("exam_operator_router",)
